@@ -1,1 +1,13 @@
+# OS Junk Files
+.DS_Store
+Thumbs.db
+
+# Jekyll Ignores
 _site/
+_bower_components/
+
+# Node.js Ignores
+node_modules/
+
+# General Ignores
+*.log

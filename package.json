@@ -1,0 +1,23 @@
+{
+  "name": "SteamController-GUI",
+  "version": "0.0.0",
+  "description": "A web app GUI for creating Steam Controller configurations.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheSeg/SteamController-GUI.git"
+  },
+  "keywords": [
+    "steam",
+    "steam controller"
+  ],
+  "author": "John *Seg* Seggerson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheSeg/SteamController-GUI/issues"
+  },
+  "homepage": "https://theseg.github.io/SteamController-GUI"
+}

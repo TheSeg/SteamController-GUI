@@ -1,0 +1,17 @@
+name: Steam Controller GUI
+markdown: redcarpet
+pygments: true
+safe: true
+lsi: false
+permalink: pretty
+timezone: America/Los_Angeles
+exclude: [
+  "README.md",
+  "bower.json",
+  "bower_components",
+  "node_modules",
+  "Gemfile*",
+  "Gruntfile.js",
+  "package.json",
+  "vendor",
+]
