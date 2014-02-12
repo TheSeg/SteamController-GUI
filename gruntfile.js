@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     dirs: {
       js_dist: "dist/script",
       js_src: "_assets/script",
-      sass: "_assets/sass",
+      style: "_assets/style",
       css: "dist/css",
     },
     // Config Tasks
@@ -24,8 +24,8 @@ module.exports = function(grunt) {
                 style: 'compressed',
             },
             files: {
-              "<%= dirs.css %>/main.css": "<%= dirs.sass %>/main.scss",
-              "<%= dirs.css %>/syntax.css": "<%= dirs.sass %>/syntax.scss",
+              "<%= dirs.css %>/main.css": "<%= dirs.style %>/main.scss",
+              "<%= dirs.css %>/syntax.css": "<%= dirs.style %>/syntax.scss",
             },
         },
     },
@@ -53,7 +53,8 @@ module.exports = function(grunt) {
       },
       sass: {
         files: [
-          "<%= dirs.sass %>/*.sass",
+          "<%= dirs.style %>/*.scss",
+          "<%= dirs.style %>/*.sass",
         ],
         tasks: [ "sass" ],
       },
