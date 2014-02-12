@@ -5,6 +5,7 @@ safe: true
 lsi: false
 permalink: pretty
 timezone: America/Los_Angeles
+baseurl: /SteamController-GUI
 exclude: [
   "README.md",
   "bower.json",
