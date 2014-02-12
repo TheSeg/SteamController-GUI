@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     dirs: {
       js_dist: "dist/script",
       js_src: "_assets/script",
-      less: "_assets/less",
+      sass: "_assets/sass",
       css: "dist/css",
     },
     // Config Tasks
@@ -18,21 +18,14 @@ module.exports = function(grunt) {
         stripBanners: true,
       },
     },
-    less: {
-        custom: {
+    sass: {
+        dist: {
             options: {
-                stripBanners:true,
-                compress:true,
-                cleancss:true,
-                sourceMap:true,
-                yuicompress:true,
-                paths: [
-                    "<%= dirs.less %>",
-                ],
+                style: 'compressed',
             },
             files: {
-              "<%= dirs.css %>/main.css": "<%= dirs.less %>/main.less",
-              "<%= dirs.css %>/syntax.css": "<%= dirs.less %>/syntax.less",
+              "<%= dirs.css %>/main.css": "<%= dirs.sass %>/main.scss",
+              "<%= dirs.css %>/syntax.css": "<%= dirs.sass %>/syntax.scss",
             },
         },
     },
@@ -58,11 +51,11 @@ module.exports = function(grunt) {
         ],
         tasks: [ "concat:custom", "uglify:custom" ],
       },
-      less: {
+      sass: {
         files: [
-          "<%= dirs.less %>/*.less",
+          "<%= dirs.sass %>/*.sass",
         ],
-        tasks: [ "less" ],
+        tasks: [ "sass" ],
       },
     },
   });
@@ -72,7 +65,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   
@@ -80,7 +73,7 @@ module.exports = function(grunt) {
   grunt.registerTask( 'init', [ 'init' , 'build' ] );
   
   // Build Task
-  grunt.registerTask( 'build' , [ 'concat' , 'copy' , 'less' , 'uglify' ] );
+  grunt.registerTask( 'build' , [ 'concat' , 'copy' , 'sass' , 'uglify' ] );
 
   // Default task(s).
   grunt.registerTask( 'default' , ['build'] );
