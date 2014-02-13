@@ -31,7 +31,7 @@ module.exports = function(grunt) {
             "uglify" : true,
             "parseFiles" : true,
             "files" : {
-                "src": ['dist']
+                "src": ['dist/**']
             },
         },
     },
@@ -70,6 +70,13 @@ module.exports = function(grunt) {
         dest:"<%= dirs.js_dist %>/bootstrap.js",
         nonull: true,
       },
+      custom: {
+          src: [
+              '<%= dirs.js_src %>/*.js',
+          ],
+          dest: "<%= dirs.js_dist %>/steam-controller-gui.js",
+          nonull: true,
+      }
     },
     copy: {
       options: {
@@ -119,6 +126,10 @@ module.exports = function(grunt) {
           src: "<%= dirs.js_dist %>/bootstrap.js",
           dest: "<%= dirs.js_dist %>/bootstrap.min.js",
       },
+      custom: {
+          src: "<%= dirs.js_dist %>/steam-controller-gui.js",
+          dest: "<%= dirs.js_dist %>/steam-controller-gui.min.js",
+      }
     },
     jekyll: {
         options: {
