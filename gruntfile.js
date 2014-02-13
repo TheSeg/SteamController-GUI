@@ -46,10 +46,21 @@ module.exports = function(grunt) {
     },
     jekyll: {
         options: {
-            bundleExec: true
+            bundleExec: true,
+            config: '_config.yml',
+            raw: 'baseurl: .\n'
         },
         dist: {
-            dest:"./_site",
+            dest:"_site/",
+        },
+    },
+    connect: {
+        server: {
+            options: {
+                port:4000,
+                base:"./_site",
+                keepalive:true,
+            },
         },
     },
     watch: {
@@ -84,13 +95,17 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-jekyll');
   
   // Inital Setup Task
   grunt.registerTask( 'init', [ 'init' , 'build' ] );
   
   // Build Task
-  grunt.registerTask( 'build' , [ 'concat' , 'copy' , 'sass' , 'uglify' ] );
+  grunt.registerTask( 'build' , [ 'concat' , 'copy' , 'sass' , 'uglify', 'jekyll' ] );
+
+  // Server Task
+  grunt.registerTask( 'server' , [ 'build', 'connect' ] );
 
   // Default task(s).
   grunt.registerTask( 'default' , ['build'] );
