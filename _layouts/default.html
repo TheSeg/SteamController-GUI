@@ -4,28 +4,51 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ page.title }}</title>
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="{{site.baseurl}}/dist/css/syntax.css">
-
-        <!-- Custom CSS -->
         <link rel="stylesheet" href="{{site.baseurl}}/dist/css/main.css">
 
     </head>
     <body>
+      <div class="site-wrapper">
 
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="{{site.baseurl}}">{{ site.name }}</a></h1>
+        <div class="site-wrapper-inner">
+
+          <div class="cover-container">
+
+            <div class="masthead clearfix">
+              <div class="inner">
+                <h3 class="masthead-brand">Steam Controller GUI</h3>
+              </div>
+            </div>
+
+            <div class="inner cover">
+              {{ content }}
+            </div>
+
+            <div class="mastfoot">
+              <div class="inner">
+                <p>
+                  By <a href="http://theseg.github.io/">John "Seg" Seggerson</a><br />
+                  Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.
+                </p>
+              </div>
+            </div>
+
           </div>
 
-          {{ content }}
-
-          <div class="footer">
-            
-          </div>
         </div>
 
+      </div>
+
+          <div class="footer">
+          </div>
+        </div>
+        
+        <!-- Javascript Includes -->
+        <script src="{{site.baseurl}}/dist/jquery/jquery.min.js"></script>
+        <script src="{{site.baseurl}}/dist/script/bootstrap.min.js"></script>
+        
     </body>
 </html>
