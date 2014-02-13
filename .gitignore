@@ -4,10 +4,10 @@ Thumbs.db
 
 # Jekyll Ignores
 _site/
-_bower_components/
 
-# Node.js Ignores
+# Module & Component Ignores
 node_modules/
+bower_components/
 
 # General Ignores
 *.log
