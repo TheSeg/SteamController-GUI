@@ -44,19 +44,34 @@ module.exports = function(grunt) {
         stripBanners: true,
       },
     },
+    jekyll: {
+        options: {
+            bundleExec: true
+        },
+        dist: {
+            dest:"./_site",
+        },
+    },
     watch: {
       js: {
         files: [
           "<%= dirs.js_src %>/*.js"
         ],
-        tasks: [ "concat:custom", "uglify:custom" ],
+        tasks: [ "concat:custom", "uglify:custom", "jekyll" ],
       },
       sass: {
         files: [
           "<%= dirs.style %>/*.scss",
           "<%= dirs.style %>/*.sass",
         ],
-        tasks: [ "sass" ],
+        tasks: [ "sass", "jekyll" ],
+      },
+      jekyll: {
+          files: [
+              "*.html",
+              "_config.yml",
+          ],
+          tasks: [ "jekyll" ],
       },
     },
   });
@@ -69,6 +84,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-jekyll');
   
   // Inital Setup Task
   grunt.registerTask( 'init', [ 'init' , 'build' ] );
