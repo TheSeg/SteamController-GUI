@@ -14,6 +14,7 @@ module.exports = function(grunt) {
       js_dist: "dist/script",
       img_dist: "dist/images",
       lib: "dist/library",
+      bower: "bower_components"
     },
     // Config Tasks
     init: {
@@ -22,10 +23,12 @@ module.exports = function(grunt) {
       },
     },
     sass: {
+        options: {
+            style: 'compressed',
+            precision: 10,
+            loadPath: "<%= dirs.bower %>/twbs-bootstrap-sass/vendor/assets/stylesheets/",
+        },
         dist: {
-            options: {
-                style: 'compressed',
-            },
             files: {
               "<%= dirs.css %>/main.css": "<%= dirs.style %>/main.scss",
               "<%= dirs.css %>/syntax.css": "<%= dirs.style %>/syntax.scss",
@@ -41,10 +44,45 @@ module.exports = function(grunt) {
       options: {
         stripBanners:true,
       },
+      holderjs: {
+          src: "bower_components/holderjs/holder.js",
+          dest: "<%= dirs.lib %>/holderjs/holder.js",
+      },
+      jquery: {
+          files: [{
+              expand: true,
+              src: "bower_components/jquery/jquery*.{js,map}",
+              dest: "<%= dirs.lib %>/jquery/",
+              flatten:true,
+              filter: "isFile",
+          }],
+      },
+      respond: {
+          files: [{
+              expand: true,
+              src: "bower_components/respond/dest/respond.{min,src}.js",
+              dest: "<%= dirs.lib %>/respond/",
+              flatten:true,
+              filter: "isFile",
+          }],
+      },
+      bootstrap: {
+          files: [{
+              expand: true,
+              src: "bower_components/twbs-bootstrap-sass/vendor/assets/fonts/bootstrap/*",
+              dest: "<%= dirs.lib %>/bootstrap/fonts/bootstrap/",
+              flatten:true,
+              filter: "isFile",
+          }],
+      },
     },
     uglify: {
       options: {
         stripBanners: true,
+      },
+      holderjs: {
+          src: "<%= dirs.lib %>/holderjs/holder.js",
+          dest: "<%= dirs.lib %>/holderjs/holder.min.js",
       },
     },
     jekyll: {
