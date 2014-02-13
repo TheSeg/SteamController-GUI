@@ -24,7 +24,8 @@
     "jquery": "^2.1.0",
     "holderjs": "^2.3.1",
     "respond": "^1.4.2",
-    "twbs-bootstrap-sass": "^3.1.0"
+    "twbs-bootstrap-sass": "^3.1.0",
+    "modernizr": "^2.7.1"
   },
   "devDependencies": {
     "grunt": "~0.4.2"

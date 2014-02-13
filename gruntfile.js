@@ -24,6 +24,17 @@ module.exports = function(grunt) {
         stripBanners: true,
       },
     },
+    modernizr: {
+        dist: {
+            "devFile" : "<%= dirs.bower %>/modernizr/modernizr.js",
+            "outputFile" : "<%= dirs.lib %>/modernizr/modernizr-custom.js",
+            "uglify" : true,
+            "parseFiles" : true,
+            "files" : {
+                "src": ['dist']
+            },
+        },
+    },
     sass: {
         options: {
             style: 'compressed',
@@ -133,14 +144,14 @@ module.exports = function(grunt) {
         files: [
           "<%= dirs.js_src %>/*.js"
         ],
-        tasks: [ "concat:custom", "uglify:custom", "jekyll" ],
+        tasks: [ "concat:custom", "uglify:custom", "modernizr", "jekyll" ],
       },
       sass: {
         files: [
           "<%= dirs.style %>/*.scss",
           "<%= dirs.style %>/*.sass",
         ],
-        tasks: [ "sass", "jekyll" ],
+        tasks: [ "sass", "modernizr", "jekyll" ],
       },
       jekyll: {
           files: [
@@ -163,12 +174,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-jekyll');
+  grunt.loadNpmTasks("grunt-modernizr");
   
   // Inital Setup Task
   grunt.registerTask( 'init', [ 'init' , 'build' ] );
   
   // Build Task
-  grunt.registerTask( 'build' , [ 'concat' , 'copy' , 'sass' , 'uglify', 'jekyll' ] );
+  grunt.registerTask( 'build' , [ 'concat' , 'copy' , 'sass' , 'uglify', "modernizr", 'jekyll' ] );
 
   // Server Task
   grunt.registerTask( 'server' , [ 'build', 'connect' ] );
