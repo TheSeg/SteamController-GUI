@@ -7,10 +7,13 @@ module.exports = function(grunt) {
       version: '0.0.0'
     },
     dirs: {
-      js_dist: "dist/script",
       js_src: "_assets/script",
+      images: "_assets/images",
       style: "_assets/style",
       css: "dist/css",
+      js_dist: "dist/script",
+      img_dist: "dist/images",
+      lib: "dist/library",
     },
     // Config Tasks
     init: {

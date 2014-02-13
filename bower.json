@@ -1,0 +1,31 @@
+{
+  "name": "SteamController-GUI",
+  "version": "0.0.0",
+  "homepage": "http://theseg.github.io/SteamController-GUI",
+  "authors": [
+    "Seg <seg@segonmedia.com>"
+  ],
+  "description": "A GUI for creating Steam Controller configurations.",
+  "main": "index.html",
+  "keywords": [
+    "steam",
+    "controller"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.1.0",
+    "holderjs": "^2.3.1",
+    "respond": "^1.4.2"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2"
+  }
+}
