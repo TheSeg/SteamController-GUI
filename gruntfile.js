@@ -14,7 +14,9 @@ module.exports = function(grunt) {
       js_dist: "dist/script",
       img_dist: "dist/images",
       lib: "dist/library",
-      bower: "bower_components"
+      bower: "bower_components",
+      bootstrap: "<%= dirs.bower %>/twbs-bootstrap-sass/vendor/assets",
+      bootstrap_js: "<%= dirs.bootstrap %>/javascripts/bootstrap",
     },
     // Config Tasks
     init: {
@@ -26,7 +28,7 @@ module.exports = function(grunt) {
         options: {
             style: 'compressed',
             precision: 10,
-            loadPath: "<%= dirs.bower %>/twbs-bootstrap-sass/vendor/assets/stylesheets/",
+            loadPath: "<%= dirs.bootstrap %>/stylesheets/",
         },
         dist: {
             files: {
@@ -39,19 +41,37 @@ module.exports = function(grunt) {
       options: {
         stripBanners: true,
       },
+      bootstrap: {
+        src: [
+          '<%= dirs.bootstrap_js %>/transition.js',
+          '<%= dirs.bootstrap_js %>/alert.js',
+          '<%= dirs.bootstrap_js %>/button.js',
+          '<%= dirs.bootstrap_js %>/carousel.js',
+          '<%= dirs.bootstrap_js %>/collapse.js',
+          '<%= dirs.bootstrap_js %>/dropdown.js',
+          '<%= dirs.bootstrap_js %>/modal.js',
+          '<%= dirs.bootstrap_js %>/tooltip.js',
+          '<%= dirs.bootstrap_js %>/popover.js',
+          '<%= dirs.bootstrap_js %>/scrollspy.js',
+          '<%= dirs.bootstrap_js %>/tab.js',
+          '<%= dirs.bootstrap_js %>/affix.js'
+        ],
+        dest:"<%= dirs.js_dist %>/bootstrap.js",
+        nonull: true,
+      },
     },
     copy: {
       options: {
         stripBanners:true,
       },
       holderjs: {
-          src: "bower_components/holderjs/holder.js",
+          src: "<%= dirs.bower %>/holderjs/holder.js",
           dest: "<%= dirs.lib %>/holderjs/holder.js",
       },
       jquery: {
           files: [{
               expand: true,
-              src: "bower_components/jquery/jquery*.{js,map}",
+              src: "<%= dirs.bower %>/jquery/jquery*.{js,map}",
               dest: "<%= dirs.lib %>/jquery/",
               flatten:true,
               filter: "isFile",
@@ -60,7 +80,7 @@ module.exports = function(grunt) {
       respond: {
           files: [{
               expand: true,
-              src: "bower_components/respond/dest/respond.{min,src}.js",
+              src: "<%= dirs.bower %>/respond/dest/respond.{min,src}.js",
               dest: "<%= dirs.lib %>/respond/",
               flatten:true,
               filter: "isFile",
@@ -69,7 +89,7 @@ module.exports = function(grunt) {
       bootstrap: {
           files: [{
               expand: true,
-              src: "bower_components/twbs-bootstrap-sass/vendor/assets/fonts/bootstrap/*",
+              src: "<%= dirs.bower %>/twbs-bootstrap-sass/vendor/assets/fonts/bootstrap/*",
               dest: "<%= dirs.lib %>/bootstrap/fonts/bootstrap/",
               flatten:true,
               filter: "isFile",
@@ -83,6 +103,10 @@ module.exports = function(grunt) {
       holderjs: {
           src: "<%= dirs.lib %>/holderjs/holder.js",
           dest: "<%= dirs.lib %>/holderjs/holder.min.js",
+      },
+      bootstrap: {
+          src: "<%= dirs.js_dist %>/bootstrap.js",
+          dest: "<%= dirs.js_dist %>/bootstrap.min.js",
       },
     },
     jekyll: {
