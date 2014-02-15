@@ -221,7 +221,7 @@ module.exports = function(grunt) {
   grunt.registerTask( 'init', [ 'init' , 'build' ] );
   
   // Build Task
-  grunt.registerTask( 'build' , [ 'concat' , 'copy' , 'imagemin', 'sass' , 'jshint', 'uglify', "modernizr", 'jekyll' ] );
+  grunt.registerTask( 'build' , [ 'concat' , 'copy' , 'sass' , 'jshint', 'uglify', "modernizr", 'jekyll' ] );
 
   // Server Task
   grunt.registerTask( 'server' , [ 'build', 'connect' ] );
