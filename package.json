@@ -14,7 +14,10 @@
     "steam",
     "steam controller"
   ],
-  "author": "John *Seg* Seggerson",
+  "author": {
+      "name":"John *Seg* Seggerson",
+      "url":"http://theseg.github.io/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/TheSeg/SteamController-GUI/issues"
@@ -30,6 +33,7 @@
     "grunt-contrib-uglify": "~0.3.2",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-jekyll": "~0.4.1",
-    "grunt-contrib-connect": "~0.6.0"
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-modernizr": "~0.5.1"
   }
 }
