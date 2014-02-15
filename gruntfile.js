@@ -108,11 +108,22 @@ module.exports = function(grunt) {
           files: [{
               expand: true,
               src: "<%= dirs.bower %>/twbs-bootstrap-sass/vendor/assets/fonts/bootstrap/*",
-              dest: "<%= dirs.lib %>/bootstrap/fonts/bootstrap/",
+              dest: "<%= dirs.lib %>/fonts/",
               flatten:true,
               filter: "isFile",
           }],
       },
+    },
+    jshint: {
+        options: {
+            browser:true,
+            globals: {
+                jquery:true,
+            }
+        },
+        all: [
+            "<%= dirs.js_dist %>/steam-controller-gui.js",
+        ],
     },
     uglify: {
       options: {
@@ -141,6 +152,19 @@ module.exports = function(grunt) {
             dest:"_site/",
         },
     },
+    imagemin: {
+        custom: {
+            options: {
+                optimizationLevel:3,
+            },
+            files: [{
+                expand: true,
+                cwd: '<%= dirs.images %>/',
+                src: ['**/*.{png,jpg,gif}'],
+                dest: '<%= dirs.img_dist %>',
+            }],
+        },
+    },
     connect: {
         server: {
             options: {
@@ -155,7 +179,7 @@ module.exports = function(grunt) {
         files: [
           "<%= dirs.js_src %>/*.js"
         ],
-        tasks: [ "concat:custom", "uglify:custom", "modernizr", "jekyll" ],
+        tasks: [ "concat:custom", "jshint", "modernizr", "uglify:custom", "jekyll" ],
       },
       sass: {
         files: [
@@ -163,6 +187,12 @@ module.exports = function(grunt) {
           "<%= dirs.style %>/*.sass",
         ],
         tasks: [ "sass", "modernizr", "jekyll" ],
+      },
+      images: {
+          files: [
+              "<%= dirs.images %>**/*.{png,jpg,gif}",
+          ],
+          tasks: [ "imagemin", "jekyll" ],
       },
       jekyll: {
           files: [
@@ -191,7 +221,7 @@ module.exports = function(grunt) {
   grunt.registerTask( 'init', [ 'init' , 'build' ] );
   
   // Build Task
-  grunt.registerTask( 'build' , [ 'concat' , 'copy' , 'sass' , 'uglify', "modernizr", 'jekyll' ] );
+  grunt.registerTask( 'build' , [ 'concat' , 'copy' , 'imagemin', 'sass' , 'jshint', 'uglify', "modernizr", 'jekyll' ] );
 
   // Server Task
   grunt.registerTask( 'server' , [ 'build', 'connect' ] );
