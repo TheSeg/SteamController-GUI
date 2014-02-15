@@ -108,7 +108,7 @@ module.exports = function(grunt) {
           files: [{
               expand: true,
               src: "<%= dirs.bower %>/twbs-bootstrap-sass/vendor/assets/fonts/bootstrap/*",
-              dest: "<%= dirs.lib %>/bootstrap/fonts/bootstrap/",
+              dest: "<%= dirs.lib %>/fonts/",
               flatten:true,
               filter: "isFile",
           }],
