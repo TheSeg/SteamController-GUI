@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/theseg/steamcontroller-gui.png?label=ready&title=Ready)](https://waffle.io/theseg/steamcontroller-gui)
 #Steam Controller GUI
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/TheSeg/steamcontroller-gui/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
