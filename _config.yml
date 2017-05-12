@@ -1,6 +1,5 @@
 name: Steam Controller GUI
 markdown: redcarpet
-pygments: true
 safe: true
 lsi: false
 permalink: pretty
