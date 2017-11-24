@@ -35,6 +35,6 @@
     "grunt-jekyll": "~0.4.1",
     "grunt-contrib-connect": "~1.0.2",
     "grunt-modernizr": "~1.0.2",
-    "grunt-svgmin": "~4.0.0"
+    "grunt-svgmin": "~5.0.0"
   }
 }
