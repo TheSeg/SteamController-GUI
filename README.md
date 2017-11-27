@@ -1,11 +1,9 @@
-#Steam Controller GUI
+# Steam Controller GUI
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/TheSeg/SteamController-GUI.svg)](https://greenkeeper.io/)
 
-[![Stories in Ready](https://badge.waffle.io/theseg/steamcontroller-gui.png?label=ready&title=Ready)](https://waffle.io/theseg/steamcontroller-gui)
 [![Build Status](https://travis-ci.org/TheSeg/SteamController-GUI.png?branch=develop)](https://travis-ci.org/TheSeg/SteamController-GUI)
 [![Dependency Status](https://gemnasium.com/TheSeg/SteamController-GUI.png)](https://gemnasium.com/TheSeg/SteamController-GUI)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/TheSeg/steamcontroller-gui/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 
